@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>การคัดแยกขยะ</title>
+<!-- โหลด Tailwind CSS และกำหนดค่าเริ่มต้น (สำหรับระบบสะสมแต้ม) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                // อนุญาตให้ใช้ฟอนต์เดิมของเว็บหลัก แต่ Tailwind ใช้ 'sans' เป็นหลัก
+                fontFamily: {
+                    sans: ['FC Mission Rounded', 'sans-serif'],
+                },
+            },
+        },
+    }
+</script>
+
+<!-- โค้ด jQuery และฟังก์ชันสำหรับเว็บเดิม -->
+<script src="jQueryAssets/jquery-1.11.1.min.js"></script> 
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+
+<style type="text/css">
+/* โค้ด CSS เดิม */
+body,td,th {
+    font-family: "FC Mission Rounded [Non-cml.]", sans-serif; /* เพิ่ม sans-serif เป็น fallback */
+    font-size: 18px;
+}
+body {
+    background-color: #BCD4FF;
+}
+
+/* สไตล์จากแอปพลิเคชันสะสมแต้ม */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+</style>
+</head>
+
+<body onLoad="MM_preloadImages('img/images/D-_Wed-Smatr-bin4life_img_images_Untitled-1_07.gif','img/images/D-_Wed-Smatr-bin4life_img_images_Untitled-1_03.gif','img/images/D-_Wed-Smatr-bin4life_img_images_Untitled-1_05.gif','img/images/D-_Wed-Smatr-bin4life_img_images_Untitled-1_06.gif','img/images/images/Untitled-42_02.png','img/images/images/Untitled-42_03.png','img/images/images/Untitled-42_05.png')">
+<table width="1024" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td width="1023" colspan="4"><img src="img/images/Untitled-3.gif" width="1024" height="200" alt="Header"/></td>
+    </tr>
+    <tr>
+      <td><a href="index.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','img/images/D-_Wed-Smatr-bin4life_img_images_Untitled-1_07.gif',1)"><img src="img/images/Untitled-2_07.gif" alt="หน้าหลัก" width="229" height="59" id="Image4"></a></td>
+      <td><a href="p2.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','img/images/D-_Wed-Smatr-bin4life_img_images_Untitled-1_03.gif',1)"><img src="img/images/Untitled-2_03.gif" alt="เมนู 2" width="283" height="59" id="Image5"></a></td>
+      <td><a href="p3.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','img/images/D-_Wed-Smatr-bin4life_img_images_Untitled-1_05.gif',1)"><img src="img/images/Untitled-2_05.gif" alt="เมนู 3" width="298" height="59" id="Image6"></a></td>
+      <td><a href="p4.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','img/images/D-_Wed-Smatr-bin4life_img_images_Untitled-1_06.gif',1)"><img src="img/images/Untitled-2_06.gif" alt="เมนู 4" width="213" height="59" id="Image7"></a></td>
+    </tr>
+    <tr>
+      <td colspan="4"><table width="1024" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td><a href="p5.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image15','','img/images/images/Untitled-42_02.png',1)"><img src="img/images/images/Untitled-4_02.png" alt="เมนู 5" width="351" height="59" id="Image15"></a></td>
+            <td><a href="p6.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image16','','img/images/images/Untitled-42_03.png',1)"><img src="img/images/images/Untitled-4_03.png" alt="เมนู 6" width="350" height="59" id="Image16"></a></td>
+            <td><a href="p7.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image17','','img/images/images/Untitled-42_05.png',1)"><img src="img/images/images/Untitled-4_05.png" alt="เมนู 7" width="323" height="57" id="Image17"></a></td>
+          </tr>
+        </tbody>
+      </table></td>
+    </tr>
+    <tr>
+      <td height="42" colspan="4" bgcolor="#98D48B"><marquee>
+        คัดแยกขยะง่าย ๆ เริ่มได้ที่ตัวเรา
+      </marquee></td>
+    </tr>
+    <!-- ส่วนเนื้อหาหลัก ถูกแทนที่ด้วยแอปพลิเคชันสะสมแต้ม -->
+    <tr>
+      <td height="512" colspan="4" align="center" valign="top" bgcolor="#DFEEC8">
+        
+        <!-- START: Recycling Rewards App Content -->
+        <!-- max-w-4xl (896px) จะพอดีกับความกว้าง 1024px ของตาราง -->
+        <div class="p-4 w-full">
+            <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-xl p-6 md:p-8 border border-gray-200">
+                
+                <!-- ส่วนหัวแอป -->
+                <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-2 flex items-center justify-center">
+                    ระบบสะสมแต้มแยกขยะ 🌍✨
+                </h1>
+                <p class="text-center text-gray-500 mb-6 text-sm">บันทึกความดีเพื่อโลกของเรา!</p>
+
+                <!-- ส่วนแสดงคะแนนรวม -->
+                <div class="bg-gradient-to-r from-emerald-400 to-green-500 p-5 rounded-xl shadow-lg mb-6 text-white text-center">
+                    <p class="text-lg font-medium">คะแนนสะสมรวม</p>
+                    <p id="total-points-display" class="text-5xl font-black mt-1">
+                        0
+                    </p>
+                    <p class="text-xs opacity-90 mt-1">แต้ม</p>
+                </div>
+
+                <!-- ส่วนจัดการข้อความแจ้งเตือน -->
+                <div id="message-container" class="transition-all duration-300">
+                    <!-- ข้อความแจ้งเตือนจะแสดงที่นี่ -->
+                </div>
+                
+                <!-- ส่วนเพิ่มคะแนน -->
+                <div class="bg-gray-50 p-5 rounded-xl shadow-inner border mb-6">
+                    <h2 class="text-xl font-bold text-gray-700 mb-4">บันทึกการแยกขยะ (สูงสุด 15 แต้ม)</h2>
+                    
+                    <!-- เลือกประเภทขยะ -->
+                    <div class="mb-4">
+                        <label class="block text-gray-600 font-medium mb-2 text-sm">เลือกประเภทขยะ:</label>
+                        <div id="category-buttons" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+                            <!-- ปุ่มประเภทขยะจะถูกสร้างด้วย JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- ใส่จำนวนคะแนน -->
+                    <div class="mb-4">
+                        <label for="points-input" class="block text-gray-600 font-medium mb-1 text-sm">
+                            จำนวนแต้มที่ได้รับ (สูงสุด 15 แต้ม):
+                        </label>
+                        <input
+                            id="points-input"
+                            type="number"
+                            value="1"
+                            min="1"
+                            max="15"
+                            class="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-emerald-500 text-base font-mono"
+                        />
+                    </div>
+                    
+                    <!-- ปุ่มบันทึก -->
+                    <button
+                        id="add-points-button"
+                        class="w-full py-2 bg-emerald-600 text-white font-bold rounded-lg shadow-lg hover:bg-emerald-700 transition-all duration-300"
+                    >
+                        ✅ บันทึก 1 แต้ม สำหรับ พลาสติก
+                    </button>
+                </div>
+
+                <!-- ส่วนประวัติการทำรายการ -->
+                <div class="bg-white p-0 rounded-xl">
+                    <h2 class="text-xl font-bold text-gray-700 mb-3">ประวัติการทำรายการล่าสุด (<span id="history-count">0</span> รายการ)</h2>
+                    
+                    <div id="history-list" class="max-h-64 overflow-y-auto space-y-2 p-3 border rounded-lg bg-white">
+                        <p class="text-center text-gray-500 p-2 text-sm">ยังไม่มีการทำรายการบันทึกคะแนน</p>
+                    </div>
+                </div>
+
+                <!-- ปุ่มล้างข้อมูล -->
+                 <div class="mt-4 pt-3 border-t border-gray-200 text-center">
+                    <button
+                        id="reset-data-button"
+                        class="text-xs text-red-500 hover:text-red-700 transition duration-150 p-1 rounded-lg hover:bg-red-50"
+                    >
+                        ⚠️ ล้างข้อมูลทั้งหมด (Local Storage)
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <!-- END: Recycling Rewards App Content -->
+        
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4"><img src="img/images/Untitled-5_13.png" width="1024" height="139" alt="Footer"/></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- START: Application Logic Script -->
+<script>
+    const RECYCLE_CATEGORIES = [
+        { type: 'พลาสติก', emoji: '🧴', color: 'bg-green-500 hover:bg-green-600', text: 'text-green-900' },
+        { type: 'กระดาษ', emoji: '📰', color: 'bg-blue-500 hover:bg-blue-600', text: 'text-blue-900' },
+        { type: 'แก้ว', emoji: '🥃', color: 'bg-yellow-500 hover:bg-yellow-600', text: 'text-yellow-900' },
+        { type: 'โลหะ', emoji: '🥫', color: 'bg-red-500 hover:bg-red-600', text: 'text-red-900' },
+        { type: 'ขยะอินทรีย์', emoji: '🍎', color: 'bg-lime-500 hover:bg-lime-600', text: 'text-lime-900' },
+    ];
+
+    const LOCAL_STORAGE_KEY = 'recyclingPointsData';
+    const MAX_POINTS_PER_ENTRY = 15;
+
+    // ตัวแปรเก็บสถานะของแอปพลิเคชัน
+    let appData = { totalPoints: 0, history: [] };
+    let selectedCategory = RECYCLE_CATEGORIES[0].type;
+    let pointsInput = 1;
+    let messageTimeoutId = null;
+
+    // DOM Elements
+    const totalPointsDisplay = document.getElementById('total-points-display');
+    const categoryButtonsContainer = document.getElementById('category-buttons');
+    const pointsInputEl = document.getElementById('points-input');
+    const addButton = document.getElementById('add-points-button');
+    const historyListEl = document.getElementById('history-list');
+    const historyCountEl = document.getElementById('history-count');
+    const messageContainer = document.getElementById('message-container');
+    const resetButton = document.getElementById('reset-data-button');
+    
+    // --- Core Data Functions ---
+
+    const loadData = () => {
+        try {
+            const data = localStorage.getItem(LOCAL_STORAGE_KEY);
+            if (data) {
+                return JSON.parse(data);
+            }
+        } catch (error) {
+            console.error("Could not load data from Local Storage:", error);
+        }
+        return { totalPoints: 0, history: [] };
+    };
+
+    const saveData = () => {
+        try {
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(appData));
+        } catch (error) {
+            console.error("Could not save data to Local Storage:", error);
+        }
+    };
+
+    // --- UI Rendering Functions ---
+
+    const showMessage = (text, isError = false) => {
+        // Clear previous timeout
+        if (messageTimeoutId) {
+            clearTimeout(messageTimeoutId);
+        }
+
+        const className = isError 
+            ? 'bg-red-100 text-red-700' 
+            : 'bg-green-100 text-green-700';
+        
+        messageContainer.innerHTML = `
+            <div class="p-3 rounded-lg mb-4 text-center font-semibold ${className} shadow-sm">
+                ${text}
+            </div>
+        `;
+        
+        // Auto hide message after 3 seconds
+        messageTimeoutId = setTimeout(() => {
+            messageContainer.innerHTML = '';
+        }, 3000);
+    };
+
+    const renderTotalPoints = () => {
+        totalPointsDisplay.textContent = appData.totalPoints.toLocaleString();
+    };
+
+    const renderHistory = () => {
+        historyCountEl.textContent = appData.history.length;
+
+        if (appData.history.length === 0) {
+            historyListEl.innerHTML = '<p class="text-center text-gray-500 p-2 text-sm">ยังไม่มีการทำรายการบันทึกคะแนน</p>';
+            return;
+        }
+
+        historyListEl.innerHTML = appData.history.map(item => {
+            const category = RECYCLE_CATEGORIES.find(c => c.type === item.type);
+            const itemColor = category ? category.color.replace('bg-', 'bg-') : 'bg-gray-100';
+            const itemTextColor = category ? category.text : 'text-gray-700';
+
+            return `
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition duration-150">
+                    <div class="flex items-center min-w-0">
+                        <span class="text-xl p-1 rounded-full mr-2 border-3 ${itemColor} border-opacity-30">
+                            ${category ? category.emoji : '❓'}
+                        </span>
+                        <div class="min-w-0">
+                            <p class="font-semibold truncate text-gray-800 text-sm">${item.type}</p>
+                            <p class="text-xs text-gray-500">${item.date}</p>
+                        </div>
+                    </div>
+                    <div class="font-black text-lg flex-shrink-0 ml-4 ${itemTextColor}">
+                        +${item.points} แต้ม
+                    </div>
+                </div>
+            `;
+        }).join('');
+    };
+
+    const renderCategoryButtons = () => {
+        categoryButtonsContainer.innerHTML = RECYCLE_CATEGORIES.map(category => {
+            const isSelected = selectedCategory === category.type;
+            const baseClass = isSelected 
+                ? `${category.color} text-white ring-4 ring-offset-2 ring-emerald-400`
+                : 'bg-white text-gray-700 border border-gray-300 hover:border-emerald-400';
+            
+            return `
+                <button
+                    data-type="${category.type}"
+                    class="p-2 rounded-lg transition-all duration-200 shadow-md flex flex-col items-center justify-center text-center ${baseClass}"
+                >
+                    <span class="text-xl">${category.emoji}</span>
+                    <span class="text-xs font-semibold mt-1">${category.type}</span>
+                </button>
+            `;
+        }).join('');
+    };
+
+    const updateAddButtonText = () => {
+        const category = RECYCLE_CATEGORIES.find(c => c.type === selectedCategory) || RECYCLE_CATEGORIES[0];
+        addButton.textContent = `✅ บันทึก ${pointsInput} แต้ม สำหรับ ${category.type}`;
+    };
+
+    const renderApp = () => {
+        renderTotalPoints();
+        renderHistory();
+        renderCategoryButtons();
+        updateAddButtonText();
+    };
+
+    // --- Event Handlers ---
+    
+    const handleCategoryButtonClick = (e) => {
+        let button = e.target.closest('button');
+        
+        if (button && categoryButtonsContainer.contains(button)) {
+            const newCategory = button.getAttribute('data-type');
+            if (newCategory) {
+                selectedCategory = newCategory;
+                // อัพเดท pointsInput จาก input element
+                pointsInput = parseInt(pointsInputEl.value, 10) || 1; 
+                
+                renderCategoryButtons(); 
+                updateAddButtonText(); 
+            }
+        }
+    };
+
+    const handlePointsInputChange = (e) => {
+        let value = parseInt(e.target.value, 10);
+        
+        if (isNaN(value) || value < 1) {
+            value = 1;
+        } else if (value > MAX_POINTS_PER_ENTRY) {
+            value = MAX_POINTS_PER_ENTRY;
+        }
+        
+        pointsInput = value;
+        e.target.value = value; 
+        updateAddButtonText();
+    };
+
+    const handleAddPoints = () => {
+        const points = parseInt(pointsInputEl.value, 10);
+        const category = selectedCategory;
+
+        if (isNaN(points) || points <= 0) {
+            showMessage("⚠️ กรุณาใส่คะแนนที่เป็นจำนวนเต็มบวก", true);
+            return;
+        }
+
+        if (points > MAX_POINTS_PER_ENTRY) {
+            showMessage(`🚫 คะแนนสูงสุดที่เพิ่มได้ต่อครั้งคือ ${MAX_POINTS_PER_ENTRY} แต้ม`, true);
+            return;
+        }
+
+        const newEntry = {
+            id: Date.now() + Math.random(),
+            type: category,
+            points: points,
+            date: new Date().toLocaleString('th-TH'),
+        };
+
+        appData.totalPoints += points;
+        appData.history.unshift(newEntry);
+        appData.history = appData.history.slice(0, 50);
+
+        pointsInput = 1; 
+        pointsInputEl.value = 1; 
+        
+        saveData();
+        renderApp();
+        showMessage(`🎉 เพิ่ม ${points} แต้ม สำหรับ ${category} เรียบร้อยแล้ว!`, false);
+    };
+
+    const handleResetData = () => {
+        const confirmationMessage = document.createElement('div');
+        confirmationMessage.className = 'mt-3 p-3 bg-red-100 text-red-700 rounded-lg flex items-center justify-between';
+        confirmationMessage.innerHTML = `
+            <p class="font-semibold text-sm">⚠️ ยืนยันการล้างข้อมูลทั้งหมดหรือไม่?</p>
+            <div>
+                <button id="confirm-reset" class="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition mr-2 text-xs">ยืนยัน</button>
+                <button id="cancel-reset" class="bg-gray-300 text-gray-800 py-1 px-3 rounded-md hover:bg-gray-400 transition text-xs">ยกเลิก</button>
+            </div>
+        `;
+        
+        resetButton.parentNode.insertBefore(confirmationMessage, resetButton.nextSibling);
+        resetButton.disabled = true;
+
+        document.getElementById('confirm-reset').addEventListener('click', () => {
+            appData = { totalPoints: 0, history: [] };
+            saveData();
+            renderApp();
+            showMessage("🗑️ ข้อมูลถูกล้างทั้งหมดแล้ว", false);
+            
+            confirmationMessage.remove();
+            resetButton.disabled = false;
+        });
+
+        document.getElementById('cancel-reset').addEventListener('click', () => {
+            confirmationMessage.remove();
+            resetButton.disabled = false;
+        });
+    };
+
+    // --- Initialization ---
+
+    const init = () => {
+        // ตรวจสอบว่า DOM Elements ที่จำเป็นสำหรับการรันแอปสะสมแต้มมีอยู่หรือไม่
+        if (!totalPointsDisplay) return; 
+        
+        appData = loadData();
+        
+        // Initial event listeners
+        pointsInputEl.addEventListener('input', handlePointsInputChange);
+        addButton.addEventListener('click', handleAddPoints);
+        resetButton.addEventListener('click', handleResetData);
+        
+        // Event Delegation Listener สำหรับปุ่มประเภทขยะ
+        categoryButtonsContainer.addEventListener('click', handleCategoryButtonClick);
+
+        // Initial render
+        renderApp();
+    };
+
+    // ใช้ window.onload เพื่อให้มั่นใจว่าทั้ง MM_preloadImages และ init ทำงาน
+    // โค้ด MM_preloadImages จะถูกเรียกโดย body onLoad อยู่แล้ว ดังนั้นเรียก init ตรงนี้เลย
+    // **หมายเหตุ: ผมตรวจสอบแล้วว่า MM_preloadImages เป็นฟังก์ชันที่สั้นและไม่ขัดแย้งกับการเรียก init()**
+    window.addEventListener('load', init);
+</script>
+<!-- END: Application Logic Script -->
+</body>
+</html>
